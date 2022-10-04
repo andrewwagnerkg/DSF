@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { AdminpanelRoutingModule } from './adminpanel-routing.module';
 import { AdminpanelComponent } from './adminpanel.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
