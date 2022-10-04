@@ -3,5 +3,5 @@ export interface CompanyrequisitesInterface {
     companyPhone: string
     companyAddress: string
     companyEmail: string
-    companyWorktime:string
+    companyWorktime: string
 }

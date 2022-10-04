@@ -1,6 +1,6 @@
 import { Ticket } from './../../../../types/ticket';
 import { TicketListService } from './../../../../services/ticket-list.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-ticket-list',
@@ -10,12 +10,18 @@ import { Component, OnInit } from '@angular/core';
 export class TicketListComponent implements OnInit {
 
   ticketList! : Ticket[]
+  @Output() selectedTicket = new EventEmitter<number>();
+
   constructor(private ticketListService:TicketListService) { }
 
   ngOnInit(): void {
     this.ticketList = this.ticketListService.GetTicketList();
   }
 
+  public SelectTicket(ticket : Ticket)
+  {
+    this.selectedTicket.emit(ticket.Id);
+  }
 
 
 }

@@ -1,0 +1,27 @@
+<div class="text-center">
+  <h1 class="text-success" *ngIf="isPassed">Экзамен пройден</h1>
+  <h1 class="text-danger" *ngIf="!isPassed">Экзамен не пройден</h1>
+</div>
+<div class="row" *ngFor="let item of results">
+  <div class="col-3">
+    <div class="row">
+      <img [src]="item.ImgUrl"/>
+    </div>
+    <div class="row">
+      {{item.QuestionText}}
+    </div>
+  </div>
+  <div class="col-1">
+    <div [class]="item.Status | questionStatusToClass">{{item.Status | questionStatusToClass}}</div>
+  </div>
+  <div class="col-3">
+    <div class="row">
+      {{item.UserAnswer.AnswerText}}
+    </div>
+  </div>
+  <div class="col-5">
+    <div class="card">
+      {{item.Description}}
+    </div>
+  </div>
+</div>

@@ -1,14 +1,14 @@
 <div class="container pt-5">
-    <div class="row text-center align-middle">
+    <div class="row text-center align-middle" *ngIf="!isTest">
       <div class="col-6 text-center">
-        <app-ticket-list></app-ticket-list>
+        <app-ticket-list (selectedTicket)="onTicketSelect($event)"></app-ticket-list>
         </div>
       <div class="col-6 align-middle text-center">
-        <a routerLink="test" class="btn btn-primary">Пройти тест</a>
+        <button class="btn btn-primary">Пройти тест</button>
       </div>
-      <div>
-        <app-pdd-test></app-pdd-test>
-      </div>
+    </div>
+    <div>
+      <app-pdd-test *ngIf="isTest" [isTicketTest]="isTicketTest" (onBackButtonClick)="testBackButtonClick()"></app-pdd-test>
     </div>
   </div>
 

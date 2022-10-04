@@ -1,4 +1,4 @@
 <div class="row" *ngFor="let ticket of ticketList">
-  <a [routerLink]="['ticket/',ticket.Id]" class="link">{{ticket.Label}}</a>
+  <a [routerLink]="" (click)="SelectTicket(ticket)" class="link pointer">{{ticket.Label}}</a>
 </div>
 
