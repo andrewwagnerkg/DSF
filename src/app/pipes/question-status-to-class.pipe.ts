@@ -15,6 +15,8 @@ export class QuestionStatusToClassPipe implements PipeTransform {
         return "card text-bg-success col";
       case QuestionStatusEnum.Skiped:
         return "card text-bg-warning col";
+      case QuestionStatusEnum.Danger:
+        return "card text-bg-danger col";
       default:
         return "card text-bg-light col"
     }

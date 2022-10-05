@@ -11,18 +11,22 @@ export class TimerComponent implements OnInit {
   @Output() expireTime = new EventEmitter<void>();
 
   private currentSecond: number = 0;
-  public remainingTime : number = this.getRemainingTime(this.maxTimeMinutes, this.currentSecond);
+  public remainingTime! : number;
   private intervalFunction! : any;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
+    this.remainingTime = this.getRemainingTime(this.maxTimeMinutes, this.currentSecond);
     this.StartTimer();
   }
+
 
   private StartTimer()
   {
     this.currentSecond = 0;
+
     this.intervalFunction = setInterval(()=>this.TimerTick(), 1000);
   }
 

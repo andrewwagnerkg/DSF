@@ -4,6 +4,7 @@ export interface IResult {
   ImgUrl:string,
   QuestionText: string,
   Status: QuestionStatusEnum,
-  UserAnswer: IAnswer,
-  Description:string
+  UserAnswer: IAnswer | null,
+  Description:string,
+  NeedShowDescription:boolean
 }

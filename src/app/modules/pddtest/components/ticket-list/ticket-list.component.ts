@@ -22,6 +22,4 @@ export class TicketListComponent implements OnInit {
   {
     this.selectedTicket.emit(ticket.Id);
   }
-
-
 }

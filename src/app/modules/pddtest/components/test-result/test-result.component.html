@@ -12,15 +12,15 @@
     </div>
   </div>
   <div class="col-1">
-    <div [class]="item.Status | questionStatusToClass">{{item.Status | questionStatusToClass}}</div>
+    <div [class]="item.Status | questionStatusToClass">Ответ</div>
   </div>
   <div class="col-3">
     <div class="row">
-      {{item.UserAnswer.AnswerText}}
+      {{item.UserAnswer?.AnswerText ?? ""}}
     </div>
   </div>
   <div class="col-5">
-    <div class="card">
+    <div class="card" *ngIf="item.NeedShowDescription">
       {{item.Description}}
     </div>
   </div>

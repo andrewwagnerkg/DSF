@@ -1,14 +1,23 @@
+<div class="container text-center">
+  <H1>Пройдите тест ПДД онлайн</H1>
+</div>
 <div class="container pt-5">
     <div class="row text-center align-middle" *ngIf="!isTest">
-      <div class="col-6 text-center">
+      <div class="card col-6 text-center">
+        <div>
+          <h2>Тренировка решения билетов</h2>
+        </div>
         <app-ticket-list (selectedTicket)="onTicketSelect($event)"></app-ticket-list>
         </div>
-      <div class="col-6 align-middle text-center">
-        <button class="btn btn-primary">Пройти тест</button>
+      <div class="col-6 align-middle text-center card">
+        <div>
+          <h2>Пройдите тест ПДД</h2>
+        </div>
+        <button class="btn btn-primary m-5" (click)="onStartTestButtonClick()">Пройти тест</button>
       </div>
     </div>
     <div>
-      <app-pdd-test *ngIf="isTest" [isTicketTest]="isTicketTest" (onBackButtonClick)="testBackButtonClick()"></app-pdd-test>
+      <app-pdd-test *ngIf="isTest" [isTicketTest]="isTicketTest" [questions]="questions" (onBackButtonClick)="testBackButtonClick()"></app-pdd-test>
     </div>
   </div>
 
