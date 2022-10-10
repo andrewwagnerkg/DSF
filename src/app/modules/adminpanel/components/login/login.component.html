@@ -1,0 +1,30 @@
+<div class="text-center align-center">
+  <div class="container">
+    <div class="row pt-2">
+      <span class="col-4"></span>
+      <div class="card p-2 col-4">
+        <div class="">
+          <form class="p-2" [formGroup]="loginForm" (ngSubmit)="login()">
+            <label for="inputlogin" class="col-sm-2 col-form-label">Login</label>
+            <div class="row">
+              <input class="form-control" type="text" id="inputlogin" formControlName="login" required/>
+            </div>
+            <label for="inputpassword" class="col-sm-2 col-form-label">Password</label>
+            <div class="row">
+              <input class="form-control" type="password" id="inputpassword" formControlName="password" required/>
+            </div>
+            <div class="row pt-2">
+              <span class="col-4"></span>
+              <button class="col-4 btn btn-primary" type="submit" [disabled]="!loginForm.valid">Войти</button>
+              <span class="col-4"></span>
+            </div>
+          </form>
+        </div>
+        <div class="alert alert-danger" *ngIf="isLoginError">
+            Не верный логин или пароль
+          </div>
+      </div>
+      <span class="col-4"></span>
+    </div>
+  </div>
+</div>

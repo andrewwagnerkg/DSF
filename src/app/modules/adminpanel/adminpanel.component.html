@@ -1,37 +1,10 @@
-<div class="text-center align-center">
-  <div class="container">
-    <div class="row pt-2">
-      <span class="col-4"></span>
-      <div class="card p-2 col-4">
-        <div class="">
-          <form class="p-2">
-            <label for="inputlogin" class="col-sm-2 col-form-label">Login</label>
-            <div class="row">
-              <input class="form-control" type="text" id="inputlogin" />
-              <label for="inputlogin" class="text-danger">Login requiered</label>
-            </div>
-            <label for="inputpassword" class="col-sm-2 col-form-label">Password</label>
-            <div class="row">
-              <input class="form-control" type="text" id="inputpassword" />
-              <label for="inputpassword" class="text-danger">Password requiered</label>
-            </div>
-            <div class="row pt-2">
-              <span class="col-4"></span>
-              <button class="col-4 btn btn-primary">Войти</button>
-              <span class="col-4"></span>
-            </div>
-          </form>
-        </div>
-      </div>
-      <span class="col-4"></span>
-    </div>
-  </div>
-</div>
 
-<div class="container pt-2">
+<app-login (onLoginSignal)="onTryLogin($event)" *ngIf="!isLogin" [isLoginError]="isLoginError"></app-login>
+
+<div class="container pt-2" *ngIf="isLogin">
   <div class="row">
     <div class="col-12 text-end">
-      <button class="btn btn-primary">Выход</button>
+      <button class="btn btn-primary" (click)="logout()">Выход</button>
     </div>
   </div>
   <div class="row">
@@ -47,7 +20,7 @@
         <a routerLink="pddtesteditor" class="list-group-item" [routerLinkActive]="['active']">Тесты ПДД</a>
       </ul>
     </div>
-    <div class="col-10">
+    <div class="col-10 pb-5">
     <router-outlet></router-outlet>
     </div>
     </div>

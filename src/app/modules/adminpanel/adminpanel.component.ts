@@ -1,3 +1,4 @@
+import { ILoginModel } from './../../types/ilogin-model';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -8,11 +9,29 @@ import { Router } from '@angular/router';
 })
 export class AdminpanelComponent implements OnInit {
 
+  public isLogin: boolean = false;
+  public isLoginError: boolean = false;
+  public token:string = ""
   constructor(private router:Router) {
    }
 
   ngOnInit(): void {
-    this.router.navigateByUrl('adminpanel/commonsettings');
+
   }
+
+public logout():void{
+  //TODO logout
+  this.isLogin = false;
+  this.isLoginError = false;
+  this.token="";
+  //this.router.navigate(['/']);
+}
+
+public onTryLogin(loginModel:ILoginModel)
+{
+  this.isLogin = true;
+  this.isLoginError = false;
+  this.token="sdfsdfadf-sdfa-asdfa-asdf-asdf-q124-3asf3"
+}
 
 }
