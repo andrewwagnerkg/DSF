@@ -6,7 +6,6 @@ import { AdminpanelRoutingModule } from './adminpanel-routing.module';
 import { AdminpanelComponent } from './adminpanel.component';
 import { LoginComponent } from './components/login/login.component';
 
-
 @NgModule({
   providers:[FormBuilder],
   declarations: [
@@ -16,7 +15,7 @@ import { LoginComponent } from './components/login/login.component';
   imports: [
     CommonModule,
     AdminpanelRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class AdminpanelModule { }

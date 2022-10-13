@@ -1,3 +1,4 @@
+import { AboutService } from './../../services/about.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutpageComponent implements OnInit {
 
-  constructor() { }
+  public htmlContent:string = ""
+  constructor(private aboutService: AboutService) { }
 
   ngOnInit(): void {
+    this.htmlContent=this.aboutService.GetHtml();
   }
 
 }

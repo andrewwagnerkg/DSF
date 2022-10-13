@@ -1,3 +1,4 @@
+import { HtmlEditorModule } from './../html-editor/html-editor.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -11,7 +12,8 @@ import { PriceEditorPageComponent } from './price-editor-page.component';
   ],
   imports: [
     CommonModule,
-    PriceEditorPageRoutingModule
+    PriceEditorPageRoutingModule,
+    HtmlEditorModule
   ]
 })
 export class PriceEditorPageModule { }

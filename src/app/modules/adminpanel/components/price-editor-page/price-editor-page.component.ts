@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PriceService } from 'src/app/services/price.service';
 
 @Component({
   selector: 'app-price-editor-page',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PriceEditorPageComponent implements OnInit {
 
-  constructor() { }
+  public html:string="";
+  constructor(private priceService:PriceService) { }
 
   ngOnInit(): void {
+    this.html = this.priceService.GetHtml();
+  }
+
+
+  public onChangeContent(html:string):void{
+    this.priceService.SetHtml(html);
   }
 
 }

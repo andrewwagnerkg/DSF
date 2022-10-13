@@ -1,3 +1,4 @@
+import { HtmlEditorModule } from './../html-editor/html-editor.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -7,11 +8,12 @@ import { ContactEditorPageComponent } from './contact-editor-page.component';
 
 @NgModule({
   declarations: [
-    ContactEditorPageComponent
+    ContactEditorPageComponent,
   ],
   imports: [
     CommonModule,
-    ContactEditorPageRoutingModule
+    ContactEditorPageRoutingModule,
+    HtmlEditorModule
   ]
 })
 export class ContactEditorPageModule { }

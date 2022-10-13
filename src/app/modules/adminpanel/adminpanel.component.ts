@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AdminpanelComponent implements OnInit {
 
-  public isLogin: boolean = false;
+  public isLogin: boolean = true;
   public isLoginError: boolean = false;
   public token:string = ""
   constructor(private router:Router) {
@@ -32,6 +32,7 @@ public onTryLogin(loginModel:ILoginModel)
   this.isLogin = true;
   this.isLoginError = false;
   this.token="sdfsdfadf-sdfa-asdfa-asdf-asdf-q124-3asf3"
+  this.router.navigate(['/','adminpanel','commonsettings']);
 }
 
 }

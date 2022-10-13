@@ -12,6 +12,8 @@ import { HomepageModule } from './modules/homepage/homepage.module';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { FormsModule } from '@angular/forms';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     AppRoutingModule,
     HomepageModule,
     RouterModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AngularEditorModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

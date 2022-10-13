@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'information', loadChildren: () => import('./modules/information/information.module').then(m => m.InformationModule) },
   { path: 'contacts', loadChildren: () => import('./modules/contacts/contacts.module').then(m => m.ContactsModule) },
   { path: 'adminpanel', loadChildren: () => import('./modules/adminpanel/adminpanel.module').then(m => m.AdminpanelModule)},
+  { path: 'login', redirectTo:'adminpanel', pathMatch:'full'},
   { path: '**', loadChildren: () => import('./modules/notfoundpage/notfoundpage.module').then(m => m.NotfoundpageModule) }
 ];
 
