@@ -1,0 +1,47 @@
+<div class="pt-3">
+  <div class="row">
+    <div class="col">
+      <input class="form-control" type="text" placeholder="Title..." [(ngModel)]="Item.Title"/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <angular-editor [config]="editorConfigshort" [(ngModel)]="Item.ShortText"></angular-editor>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <angular-editor [config]="editorConfigfull" [(ngModel)]="Item.Fulltext"></angular-editor>
+    </div>
+  </div>
+  <div class="row g-2">
+    <div class="col-10 pt-2 text-end">
+      <button class="btn btn-default" (click)="onHideShowButtonClick()">Показать\Скрыть отображение</button>
+    </div>
+    <div class="col pt-2 text-end">
+      <button class="btn btn-primary" (click)="onSaveChanges()">Сохранить</button>
+    </div>
+  </div>
+  <div *ngIf="isViewShowed">
+  <div class="row g-2">
+    <div class="col pt-2">
+      <div class="card mt-2">
+        <h5 class="card-header">{{Item.Title}}</h5>
+        <div class="card-body">
+          <div class="row">
+            <div [innerHtml]="Item.ShortText"></div>
+          </div>
+          <a class="btn btn-primary">Подробнее</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row g-2 pt-3">
+    <div class="col pt-2 card">
+      <h1>{{Item.Title}}</h1>
+      <p [innerHtml]="Item.Fulltext"></p>
+    </div>
+  </div>
+</div>
+</div>
+

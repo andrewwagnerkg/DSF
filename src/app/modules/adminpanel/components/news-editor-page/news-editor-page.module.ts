@@ -1,3 +1,4 @@
+import { NewsItemEditorModule } from './../news-item-editor/news-item-editor.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -11,7 +12,8 @@ import { NewsEditorPageComponent } from './news-editor-page.component';
   ],
   imports: [
     CommonModule,
-    NewsEditorPageRoutingModule
+    NewsEditorPageRoutingModule,
+    NewsItemEditorModule
   ]
 })
 export class NewsEditorPageModule { }

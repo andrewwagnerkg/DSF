@@ -9,24 +9,41 @@
 </ul>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active card p-2" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-    <table class="table">
-      <tbody>
-        <tr>
-          <td class="align-middle">имя новостиzvzxcvzdvzsdvzxcvzxcvzxcvdfgdfgsfgsdfsdfssgsdfgsdfgsdfgsdfg</td>
-          <td><button class="col p-2 btn btn-primary border">Перейти</button></td>
-          <td><button class="col p-2 btn btn-primary border">Редактировать</button></td>
-          <td><button class="col p-2 btn btn-primary border">Выключить</button></td>
-          <td><button class="col p-2 btn btn-primary border">Удалить</button></td>
-        </tr>
-        <tr>
-          <td class="align-middle">имя новостиzvzxcvzdvzsdvzxcvzxcvzxcvdf</td>
-          <td><button class="col p-2 btn btn-primary border">Перейти</button></td>
-          <td><button class="col p-2 btn btn-primary border">Редактировать</button></td>
-          <td><button class="col p-2 btn btn-primary border">Выключить</button></td>
-          <td><button class="col p-2 btn btn-primary border">Удалить</button></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="row">
+      <div class="col-12">
+        <table class="table" *ngIf="!isItemEdit">
+          <tbody>
+            <tr *ngFor="let item of newsList">
+              <td class="align-middle">{{item.Title}}</td>
+              <td><button class="col p-2 btn btn-primary border" (click)="EditNewsItem(item)">Редактировать</button></td>
+              <td><button class="col p-2 btn border" [ngClass]="{'btn-success':item.IsDisabled, 'btn-warning':!item.IsDisabled}" (click)="DisabledNewsItem(item)">Включить\Выключить</button></td>
+              <td><button class="col p-2 btn btn-danger border" (click)="DeleteNewsItem(item)">Удалить</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <!-- <ul class="pagination justify-content-end">
+          <li class="page-item"><button class="page-link active">1</button></li>
+          <li class="page-item"><button class="page-link">2</button></li>
+          <li class="page-item"><button class="page-link">3</button></li>
+        </ul> -->
+      </div>
+    </div>
+    <div *ngIf="isItemEdit">
+      <div class="row">
+        <div class="text-end">
+          <button class="btn btn-primary" (click)="onBackClicked()">Назад</button>
+        </div>
+        <app-news-item-editor [Item]="selectedItem" (onContentChange)="onItemSaveChanges($event)"></app-news-item-editor>
+      </div>
+    </div>
   </div>
-  <div class="tab-pane fade card p-2" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">add news</div>
+  <div class="tab-pane fade card p-2" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+    <div>
+      <app-news-item-editor (onContentChange)="onItemAdd($event)"></app-news-item-editor>
+    </div>
+  </div>
 </div>

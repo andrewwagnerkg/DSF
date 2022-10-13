@@ -1,3 +1,5 @@
+import { Inewsitem } from './../../types/inewsitem';
+import { NewsService } from './../../services/news.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor() { }
+  public currentnews:Inewsitem[]=[];
+  constructor(private newsService:NewsService) { }
 
   ngOnInit(): void {
+    this.currentnews=this.newsService.GetNewsItems(1,10);
   }
 
 }
