@@ -7,6 +7,30 @@
   </li>
 </ul>
 <div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active card p-2" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">list of news</div>
-  <div class="tab-pane fade card p-2" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">add news</div>
+  <div class="tab-pane fade show active card p-2" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+    <div *ngIf="!isEditItem">
+      <div *ngFor="let item of items">
+        <div class="card mt-2">
+          <h5 class="card-header">{{item.Title}}</h5>
+          <div class="card-body">
+            <p class="card-text">{{item.Text}}</p>
+            <button class="btn btn-primary m-2" (click)="onEditClick(item)">Редактировать</button>
+            <button class="btn  m-2" [ngClass]="{'btn-warning':!item.IsDisabled, 'btn-success':item.IsDisabled}" (click)="onChangeStatusClick(item)">Включить выключить</button>
+            <button class="btn btn-danger m-2" (click)="onDeleteClick(item)">Удалить</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="isEditItem">
+      <div class="row">
+        <div class="col text-end">
+          <button class="btn btn-primary" (click)="onBackClick()">Назад</button>
+        </div>
+      </div>
+      <app-edit-qustion [currentItem]="currentItem" (onSaveChanges)="SaveChanges($event)"></app-edit-qustion>
+    </div>
+  </div>
+  <div class="tab-pane fade card p-2" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+    <app-edit-qustion (onSaveChanges)="AddQuestion($event)"></app-edit-qustion>
+  </div>
 </div>

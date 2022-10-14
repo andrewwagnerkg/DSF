@@ -1,0 +1,23 @@
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" needs-validation class="needs-validation">
+  <div class="row pt-2">
+    <div class="col">
+      <div class="row pt-2">
+        <div class="col">
+          <label>Вопрос</label>
+          <input type="text" placeholder="Ворос..." class="form-control" name="question"  [(ngModel)]="question" required minlength="15">
+        </div>
+      </div>
+      <div class="row pt-2">
+        <div class="col">
+          <label>Ответ</label>
+          <input type="text" placeholder="Ответ..." class="form-control" name="answer" [(ngModel)]="answer" ngModel required minlength="15">
+        </div>
+      </div>
+      <div class="row pt-2">
+        <div class="col text-end">
+          <input type="submit" class="btn btn-primary" [disabled]="myForm.invalid" value="Сохранить"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
