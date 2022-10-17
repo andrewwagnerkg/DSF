@@ -22,6 +22,7 @@ export class EditQustionComponent implements OnInit {
 
   public onSubmit(form: NgForm):void{
     this.onSaveChanges.emit({Id:this.currentItem.Id, IsDisabled: this.currentItem.IsDisabled, Title:this.question, Text:this.answer});
+    form.reset();
   }
 
 }

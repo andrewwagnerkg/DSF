@@ -5,6 +5,9 @@
   <li class="nav-item" role="presentation">
     <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Новые вопросы</button>
   </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="message-tab" data-bs-toggle="tab" data-bs-target="#message-tab-pane" type="button" role="tab" aria-controls="message-tab-pane" aria-selected="false">Сообщения пользователей</button>
+  </li>
 </ul>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active card p-2" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
@@ -32,5 +35,29 @@
   </div>
   <div class="tab-pane fade card p-2" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
     <app-edit-qustion (onSaveChanges)="AddQuestion($event)"></app-edit-qustion>
+  </div>
+  <div class="tab-pane fade card p-2" id="message-tab-pane" role="tabpanel" aria-labelledby="message-tab" tabindex="1">
+    <div class="row g2" *ngFor="let item of userQuestions">
+      <div class="col-8">
+        <div class="card p-2">
+          {{item.Message}}
+        </div>
+      </div>
+      <div class="col-2">
+        <button class="btn btn-primary" (click)="onAnswer(item)">Ответить</button>
+      </div>
+      <div class="col-2">
+        <button class="btn btn-danger" (click)="onDelete(item)">Удалить</button>
+      </div>
+      <div class="row g-2 pt-2" *ngIf="isEditMessageItem">
+        <div class="col-11 pt-2" >
+          <app-edit-qustion (onSaveChanges)="AddQuestion($event)" [currentItem]="currentQuestionItem"></app-edit-qustion>
+        </div>
+        <div class="col-1">
+          <button class="btn btn-primary" (click)="onBackEdit()">Назад</button>
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>

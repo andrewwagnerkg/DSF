@@ -1,0 +1,21 @@
+<h2>
+  Задайте ваш вопрос
+</h2>
+  <form class="form-group card p-2" [formGroup]="formGroup" (ngSubmit)="onFormSubmit()">
+    <div>
+      <label for="phonetext" class="form-label">Телефон:</label>
+      <input id ="nametext" class="form-control" type = "text" name = "phone" formControlName="phone" required/>
+      <div class="alert alert-danger" *ngIf="phone.invalid && (phone.dirty || phone.touched)">Заполните ваш телефон в формате 0(ХХХ)YYYYYY</div>
+    </div>
+    <div>
+      <label for="nametext" class="form-label">Ваше имя:</label>
+      <input id ="nametext" class="form-control" type = "text" name = "name" formControlName="name" required/>
+      <div class="alert alert-danger" *ngIf="name.invalid && (name.dirty || name.touched)">Заполните ваше имя</div>
+    </div>
+    <div>
+      <label for="questiontext" class="form-label">Ваш вопрос:</label>
+      <textarea class="form-control" id="questiontext" rows="3" formControlName="message" required></textarea>
+      <div class="alert alert-danger" *ngIf="message.invalid && (message.dirty || message.touched)">Заполните ваш вопрос</div>
+    </div>
+    <input type="submit" class="btn btn-primary mt-2" [disabled]="formGroup.invalid" value="Отправить"/>
+  </form>
