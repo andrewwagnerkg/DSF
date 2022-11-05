@@ -1,0 +1,23 @@
+<div>
+  <div class="alert alert-danger">Не заполнен</div>
+  <div class="alert alert-warning">Не активен</div>
+  <div class="alert alert-success">Активен</div>
+  <label for="#tiketname">Наименование билета</label>
+  <input class="form-control" type="text" id="#tiketname" placeholder="Билет №1"/>
+  <div class="p-2">
+    <div class="row p-2 d-flex justify-content-end align-item-center">
+      <div class="col d-flex justify-content-end">
+        <span class="p-2">кол-во вопросов: 1</span>
+        <button class="btn btn-secondary"><i class="bi bi-plus"></i></button>
+      </div>
+    </div>
+    <app-pddquestionlist></app-pddquestionlist>
+  </div>
+  <div class="row">
+    <div class="col d-flex justify-content-end">
+      <button class="btn btn-primary">Сохранить</button>
+    </div>
+  </div>
+</div>
+<app-add-question-to-ticket></app-add-question-to-ticket>
+

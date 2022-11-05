@@ -1,12 +1,12 @@
-.coruselButton{
-  border-radius: 0px;
-}
-
-.gridcontainer{
-  display: flex;
-  flex-wrap: wrap;
-  column-gap:20px;
+.gap{
+  border: 1px;
+  border-color: black;
   row-gap: 40px;
-  padding-bottom: 5rem;
+  margin-bottom: 25px;
 }
 
+
+.padding{
+  padding-bottom: 35px;
+  padding-top: 25px;
+}

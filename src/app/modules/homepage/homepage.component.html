@@ -45,23 +45,21 @@
 </div>
 <!-- Carousel End -->
 
-<div class="container p-2">
-
-  <div class="gridcontainer">
-    <div class="bg-white shadow d-flex align-items-center h-100 p-4" *ngFor="let item of currentnews" style="min-height: 150px;">
-      <div class="d-flex">
-          <div class="flex-shrink-0 btn-lg-square bg-primary">
-          </div>
-          <div class="ps-4">
-              <h2>{{item.Title}}</h2>
-              <div [outerHTML]="item.ShortText"></div>
-              <div class="row">
-                <div class="col">
-                  <a [routerLink]="['','article', item.Id]" class="btn btn-primary pt-2">Подробнее</a>
-                </div>
+<div class="container padding">
+  <div class="bg-white shadow d-flex align-items-center h-100 p-4 gap" *ngFor="let item of currentnews" style="min-height: 150px;">
+    <div class="d-flex">
+        <div class="flex-shrink-0 btn-lg-square bg-primary">
+        </div>
+        <div class="ps-4">
+            <h2>{{item.Title}}</h2>
+            <div [outerHTML]="item.ShortText"></div>
+            <div class="row">
+              <div class="col">
+                <a [routerLink]="['','article', item.Id]" class="btn btn-primary pt-2">Подробнее</a>
               </div>
-          </div>
-      </div>
+            </div>
+        </div>
+    </div>
   </div>
 </div>
 
