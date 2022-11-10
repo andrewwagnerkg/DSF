@@ -1,7 +1,7 @@
+import { ITicketQuestionAnswer } from './../../../../types/iticket-question-answer';
+import { ITicketQuestion } from './../../../../types/iticket-question';
 import { QuestionStatusEnum } from './../../../../types/question-status-enum';
-import { IQuestion } from './../../../../types/iquestion';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { IAnswer } from 'src/app/types/ianswer';
 
 @Component({
   selector: 'app-pdd-test',
@@ -11,9 +11,10 @@ import { IAnswer } from 'src/app/types/ianswer';
 export class PddTestComponent implements OnInit {
 
   @Input() isTicketTest: boolean = false;
+  @Input() public questions!:ITicketQuestion[];
   @Output() onBackButtonClick = new EventEmitter<void>();
-  @Input() public questions!:IQuestion[];
-  public currentQuestion! : IQuestion;
+
+  public currentQuestion! : ITicketQuestion;
   private canApplyAnswer: boolean = false;
   public isShowTest: boolean = true;
   public isShowResult: boolean = false;
@@ -25,7 +26,7 @@ export class PddTestComponent implements OnInit {
     this.setCurrentQuestion(this.questions[0]);
   }
 
-  private setCurrentQuestion(question:IQuestion):void{
+  private setCurrentQuestion(question:ITicketQuestion):void{
     this.currentQuestion = question;
     this.currentQuestion.Status = QuestionStatusEnum.Current;
   }
@@ -33,7 +34,6 @@ export class PddTestComponent implements OnInit {
   private setStatusToCurrentQuestion(status:QuestionStatusEnum):void{
     this.currentQuestion.Status = status;
   }
-
 
   public backButtonClick(): void{
     this.onBackButtonClick.emit();
@@ -43,7 +43,7 @@ export class PddTestComponent implements OnInit {
     this.setTestFinish();
   }
 
-  public GoToQuestion(newQuestion: IQuestion):void{
+  public GoToQuestion(newQuestion: ITicketQuestion):void{
     if(newQuestion.Status == QuestionStatusEnum.Answered || newQuestion.Status == QuestionStatusEnum.Current) return;
     this.setStatusToCurrentQuestion(QuestionStatusEnum.Skiped);
     this.setCurrentQuestion(newQuestion);
@@ -64,7 +64,7 @@ export class PddTestComponent implements OnInit {
     this.setStatusToCurrentQuestion(QuestionStatusEnum.Current);
   }
 
-  public onAnswer(answer:IAnswer):void{
+  public onAnswer(answer:ITicketQuestionAnswer):void{
     this.currentQuestion.Answers.filter((a)=>a.Id == answer.Id).forEach((a)=>a.IsUserAnswer = true);
     this.canApplyAnswer = true;
   }

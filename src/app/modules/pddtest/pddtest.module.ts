@@ -1,3 +1,6 @@
+import { TicketStatusToAlertClassPipe } from './../../pipes/ticket-status-to-alert-class.pipe';
+import { TicketStatusToStringPipe } from './../../pipes/ticket-status-to-string.pipe';
+import { TicketStatusToButtonTextPipe } from './../../pipes/ticket-status-to-button-text.pipe';
 import { ToTimeStringPipe } from 'src/app/pipes/to-time-string.pipe';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -21,7 +24,7 @@ import { TestResultComponent } from './components/test-result/test-result.compon
     TimerComponent,
     QuestionStatusToClassPipe,
     ToTimeStringPipe,
-    TestResultComponent
+    TestResultComponent,
   ],
   imports: [
     CommonModule,

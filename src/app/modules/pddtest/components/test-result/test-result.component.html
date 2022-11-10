@@ -4,11 +4,7 @@
 </div>
 <div class="row" *ngFor="let item of results">
   <div class="col-3">
-    <div class="row">
-      <img [src]="item.ImgUrl"/>
-    </div>
-    <div class="row">
-      {{item.QuestionText}}
+    <div [outerHTML]="item.QuestionText" class="row">
     </div>
   </div>
   <div class="col-1">
@@ -16,7 +12,7 @@
   </div>
   <div class="col-3">
     <div class="row">
-      {{item.UserAnswer?.AnswerText ?? ""}}
+      {{item.UserAnswer?.Text ?? ""}}
     </div>
   </div>
   <div class="col-5">

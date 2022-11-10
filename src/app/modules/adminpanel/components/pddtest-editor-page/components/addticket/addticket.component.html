@@ -1,23 +1,23 @@
-<div>
-  <div class="alert alert-danger">Не заполнен</div>
-  <div class="alert alert-warning">Не активен</div>
-  <div class="alert alert-success">Активен</div>
+<div *ngIf="!adQuestionState">
+  <div class="{{currentTicket.Status| ticketStatusToAlertClass}}">{{currentTicket.Status | ticketStatusToString}}</div>
   <label for="#tiketname">Наименование билета</label>
-  <input class="form-control" type="text" id="#tiketname" placeholder="Билет №1"/>
+  <input class="form-control" type="text" id="#tiketname" placeholder="Например Билет №1" [(ngModel)]="currentTicket.Label"/>
   <div class="p-2">
     <div class="row p-2 d-flex justify-content-end align-item-center">
       <div class="col d-flex justify-content-end">
-        <span class="p-2">кол-во вопросов: 1</span>
-        <button class="btn btn-secondary"><i class="bi bi-plus"></i></button>
+        <span class="p-2">кол-во вопросов: {{CountOfQuestions}}</span>
+        <button class="btn btn-secondary" (click)="onAddQuestionClick()"><i class="bi bi-plus"></i></button>
       </div>
     </div>
-    <app-pddquestionlist></app-pddquestionlist>
+    <app-pddquestionlist [questionList]="currentTicket.Questions" (editQuestionClickEvent)="editQuestionClick($event)"></app-pddquestionlist>
   </div>
   <div class="row">
-    <div class="col d-flex justify-content-end">
-      <button class="btn btn-primary">Сохранить</button>
+    <div class="col d-flex justify-content-end ">
+      <button class="btn btn-warning m-2" (click)="onCancelTicketClick()">Отмена</button>
+      <button class="btn btn-primary m-2" (click)="onSaveTicketClick()" [disabled]="canSaveTicket">Сохранить</button>
     </div>
   </div>
 </div>
-<app-add-question-to-ticket></app-add-question-to-ticket>
+<app-add-question-to-ticket (cancelAddOrEditquestion)="cancelAddOrEditquestion()"
+(applyAddOrEditQuestion)="onApplyAddOrEditQuestion($event)" [questionForChange] = "currentQuestion" *ngIf="adQuestionState"></app-add-question-to-ticket>
 

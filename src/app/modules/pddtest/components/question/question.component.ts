@@ -1,5 +1,5 @@
-import { IQuestion } from './../../../../types/iquestion';
-import { IAnswer } from './../../../../types/ianswer';
+import { ITicketQuestionAnswer } from './../../../../types/iticket-question-answer';
+import { ITicketQuestion } from 'src/app/types/iticket-question';
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
@@ -9,15 +9,15 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 })
 export class QuestionComponent implements OnInit {
 
-  @Input() question!:IQuestion;
-  @Output() answerEmitter = new EventEmitter<IAnswer>();
+  @Input() question!:ITicketQuestion;
+  @Output() answerEmitter = new EventEmitter<ITicketQuestionAnswer>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  public checkAnswer(answer:IAnswer):void{
+  public checkAnswer(answer:ITicketQuestionAnswer):void{
     this.answerEmitter.emit(answer);
   }
 

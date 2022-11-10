@@ -16,9 +16,9 @@ export class FooterComponent implements OnInit {
   constructor(private configservice:ConfigService) { }
 
   ngOnInit(): void {
-    this.address = this.configservice.getCommonRequisites().companyAddress
-    this.phone = this.configservice.getCommonRequisites().companyPhone
-    this.email = this.configservice.getCommonRequisites().companyEmail
+    // this.address = this.configservice.getCommonRequisites().companyAddress
+    // this.phone = this.configservice.getCommonRequisites().companyPhone
+    // this.email = this.configservice.getCommonRequisites().companyEmail
   }
 
 }

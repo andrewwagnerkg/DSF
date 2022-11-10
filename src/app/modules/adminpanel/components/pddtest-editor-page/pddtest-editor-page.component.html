@@ -1,6 +1,9 @@
 <div>
-  <app-addticket></app-addticket>
+  <button *ngIf="isShowAddButton" class="btn btn-primary" (click)="addTicketchangeState()">Добавить Билет <i class="bi bi-plus"></i></button>
 </div>
 <div>
-<app-ticketlist></app-ticketlist>
+  <app-addticket *ngIf="isShowTicketAdd" [ticket]="curentTicket" (onCancelButtonClick)="cancelNewTicket()" (onsaveButtonClick)="saveNewTicket($event)"></app-addticket>
 </div>
+  <div>
+    <app-ticketlist *ngIf="isShowTicketList" (onEditTicket)="editTicketStateChange()" [tickets]="tickets" (deleteTicket)="deleteTicket($event)" (saveChanges)="saveChangedTicket($event)"></app-ticketlist>
+  </div>

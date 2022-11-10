@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ConfigService } from 'src/app/services/config.service';
+import { CompanyrequisitesInterface } from 'src/app/types/companyrequisites';
 
 @Component({
   selector: 'app-header',
@@ -9,16 +10,25 @@ import { ConfigService } from 'src/app/services/config.service';
 })
 export class HeaderComponent implements OnInit {
 
-  address!:string
-  worktime!:string
-  phone!:string
+  public address!:string;
+    worktime:string | undefined
+  public phone:string = "";
+  config:CompanyrequisitesInterface = {companyAddress:"", companyEmail:"", companyName:"", companyPhone:"", companyWorktime:""};
 
   constructor(private configService: ConfigService) { }
 
   ngOnInit(): void {
-    this.address = this.configService.getCommonRequisites().companyAddress
-    this.worktime = this.configService.getCommonRequisites().companyWorktime
-    this.phone = this.configService.getCommonRequisites().companyPhone
+    this.configService.getCommonRequisites().subscribe({next:(data:any)=>
+      {
+        this.config = {...data};
+        this.update();
+      }});
+      console.log(this.config);
+  }
+
+  update():void{
+    debugger
+    this.address  = this.config.companyAddress;
   }
 
 }

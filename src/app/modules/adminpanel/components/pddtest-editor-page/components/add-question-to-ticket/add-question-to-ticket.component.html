@@ -1,31 +1,38 @@
-<angular-editor [config]="editorConfig"></angular-editor>
+<div>
+  <label>Текст вопроса</label>
+  <angular-editor [config]="editorConfig" [(ngModel)]="questionForChange.Text"></angular-editor>
+</div>
+<div>
+  <label>описание правильного ответа</label>
+  <angular-editor [config]="editorConfig" [(ngModel)]="questionForChange.Description"></angular-editor>
+</div>
 <div class="row pt-2 d-flex align-item-center">
   <div class="col d-flex justify-content-end align-items-center">
-    <div class="p-1">Кол-во ответов: 1</div>
+    <div class="p-1">Кол-во ответов: {{CountOfAnswers}}</div>
     <div class="d-flex flex-row">
-      <button class="btn btn-secondary">+</button>
+      <button class="btn btn-secondary" (click)="onAddAnswerButtonClick()">+</button>
     </div>
   </div>
 </div>
 <div>
-  <div class="card m-2">
+  <div class="card m-2" *ngFor="let answer of questionForChange.Answers">
     <div class="row p-2">
       <div class="col d-flex justify-content-start align-item-center">
-        <input type="checkbox"/>
+        <input type="checkbox" [(ngModel)]="answer.IsRight"/>
       </div>
       <div class="col-10 d-flex justify-content-center align-item-center">
-        <input class="form-control" placeholder="текст ответа" type="text"/>
+        <input class="form-control" placeholder="текст ответа" type="text" [(ngModel)]="answer.Text"/>
       </div>
       <div class="col-1 d-flex justify-content-end align-item-center m-1">
-        <button class="btn btn-danger">Удалить</button>
+        <button class="btn btn-danger" (click)="onDeleteItemClick(answer)">Удалить</button>
       </div>
     </div>
   </div>
 
   <div class="row pt-2">
     <div class="col d-flex justify-content-end align-item-center">
-      <button class="btn btn-warning m-2">Отмена</button>
-      <button class="btn btn-primary m-2">Сохранить</button>
+      <button class="btn btn-warning m-2" (click)="onCancelButtonClick()">Отмена</button>
+      <button class="btn btn-primary m-2" (click)="onAddOrEditQuestionButtonClick()">Сохранить</button>
     </div>
   </div>
 </div>

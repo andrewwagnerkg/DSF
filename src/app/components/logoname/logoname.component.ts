@@ -17,7 +17,7 @@ export class LogonameComponent implements OnInit {
   constructor(private configService: ConfigService) { }
 
   ngOnInit(): void {
-    this.text = this.configService.getCommonRequisites().companyName;
+    //this.text = this.configService.getCommonRequisites().companyName;
   }
 
 }

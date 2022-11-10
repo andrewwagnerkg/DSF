@@ -10,7 +10,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class TicketListComponent implements OnInit {
 
   ticketList! : Ticket[]
-  @Output() selectedTicket = new EventEmitter<number>();
+  @Output() selectedTicket = new EventEmitter<Ticket>();
 
   constructor(private ticketListService:TicketListService) { }
 
@@ -20,6 +20,6 @@ export class TicketListComponent implements OnInit {
 
   public SelectTicket(ticket : Ticket)
   {
-    this.selectedTicket.emit(ticket.Id);
+    this.selectedTicket.emit(ticket);
   }
 }
