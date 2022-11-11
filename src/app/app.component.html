@@ -1,5 +1,4 @@
-<app-menu></app-menu>
-<div style="padding-top: 114px;">
-  <router-outlet></router-outlet>
-</div>
-<app-footer></app-footer>
+<app-header [config]="config"></app-header>
+<app-menu [config]="config"></app-menu>
+<router-outlet></router-outlet>
+<!-- <app-footer></app-footer> -->

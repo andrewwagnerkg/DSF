@@ -26,7 +26,6 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     ImagetextComponent,
   ],
   imports: [
-    HttpClientModule,
     BrowserModule,
     PdfViewerModule,
     AppRoutingModule,
@@ -35,6 +34,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     BrowserAnimationsModule,
     AngularEditorModule,
     FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

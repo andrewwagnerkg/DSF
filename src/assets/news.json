@@ -1,0 +1,15 @@
+{
+  "news":
+  [
+    {"Id" : 1, "Title" : "news title 1", "ShortText" : "<h1>it</h1> just short text for news 1"},
+    {"Id" : 12, "Title" : "news title 1", "ShortText" : "<h1>it</h1> just short text for news 1"},
+    {"Id" : 112, "Title" : "news title 1", "ShortText" : "<h1>it</h1> just short text for news 1"},
+    {"Id" : 11, "Title" : "news title 1", "ShortText" : "<h1>it</h1> just short text for news 1"},
+    {"Id" : 1223, "Title" : "news title 1", "ShortText" : "<h1>it</h1> just short text for news 1"},
+    {"Id" : 1122, "Title" : "news title 1", "ShortText" : "<h1>it</h1> just short text for news 1"},
+    {"Id" : 1141, "Title" : "news title 1", "ShortText" : "<h1>it</h1> just short text for news 1"},
+    {"Id" : 1245, "Title" : "news title 1", "ShortText" : "<h1>it</h1> just short text for news 1"},
+    {"Id" : 1224, "Title" : "news title 1", "ShortText" : "<h1>it</h1> just short text for news 1"},
+    {"Id" : 123, "Title" : "news title 1", "ShortText" : "<h1>it</h1> just short text for news 1"}
+  ]
+}

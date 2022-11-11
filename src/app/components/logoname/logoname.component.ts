@@ -1,6 +1,5 @@
-import { getTestBed } from '@angular/core/testing';
+import { Config } from 'src/app/types/dto/config';
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { ConfigService } from 'src/app/services/config.service';
 
 @Component({
   selector: 'app-logoname',
@@ -12,12 +11,13 @@ export class LogonameComponent implements OnInit {
 
   @Input() Imageclass!: string;
 
+  @Input() public config:Config | undefined;
+
   text!:string
 
-  constructor(private configService: ConfigService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    //this.text = this.configService.getCommonRequisites().companyName;
   }
 
 }
